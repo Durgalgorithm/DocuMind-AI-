@@ -1,0 +1,16 @@
+Sample Document: Responsible AI Project Brief
+
+Project goal:
+The team is building a document assistant that helps analysts locate evidence in long reports. The first version supports searchable PDF and TXT files and provides answers with source references.
+
+Risks:
+The system may retrieve passages that are semantically similar but not actually relevant. Language models can generate claims that are not supported by the source. Scanned PDFs may not contain extractable text. Sensitive documents should not be uploaded to untrusted services.
+
+Mitigations:
+Use chunk-level semantic retrieval, show the passages used to form each answer, ask the model to abstain when evidence is insufficient, and run a separate evidence-checking step. Tell users that the verifier is imperfect. For scanned PDFs, add OCR as a future enhancement.
+
+Evaluation plan:
+Create a set of representative questions with expected supporting passages. Measure retrieval quality by checking whether the correct passage appears in the top four results. Review answer faithfulness manually. Track unsupported answers and retrieval failures.
+
+Future improvements:
+Add persistent vector storage, document-level access controls, OCR, hybrid keyword and vector retrieval, and a larger automated evaluation set.
